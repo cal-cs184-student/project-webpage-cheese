@@ -1,0 +1,157 @@
+<html>
+	<style>
+		body {
+		  margin-left: 5rem;
+		  margin-right: 5rem;
+		}
+	  </style>
+	<head>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default'></script>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+		<style>
+			h1 {
+				text-align: center;
+			}
+
+			.container {
+				margin: 0 auto;
+				padding: 60px 20%;
+			}
+
+			figure {
+				text-align: center;
+			}
+
+			img {
+				display: inline-block;
+			}
+
+			body {
+				font-family: 'Inter', sans-serif;
+				text-align: justify;
+				line-height: 1.6;
+
+			}
+		</style>
+</head>
+<body>
+
+	<h1>The Cheese Touch!</h1>
+	<h3>CS 184 Spring 2025, Final Project Webpage</h3>
+	<div style="display: flex; flex-direction: column; align-items: center;">
+		<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			<tr>
+				<td style="text-align: center;">
+					<img src="./images/cheese-title.png" width="300px"/>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+  	<h2>Summary and Team Members</h2>
+  	<p><strong>Team Members:</strong><br>
+  	Heekyung Lee (3040759387), Jonah Tharakan (3036651401), Jaewon Hur (3039164221), Allison Dana (3038945561)</p>
+
+  	<p><strong>Summary:</strong><br>
+  	The project is to render cheese and cheese-like materials accurately. The overarching goal is to generate satisfying “cheese pull” images. We would also like to render a simulation on how a block of cheese will change in the microwave as time passes.</p>
+
+  	<h2>Problem Description</h2>
+  	<p>
+		The problem we are solving is creating a physically accurate and artistically pleasing simulation/animation of melted cheese.
+		Melted cheese acts as an elastic body which is different from a mass-spring system but not quite a fluid. We will solve this
+		problem by implementing a particle-based volume described in a paper mentioned below. This problem is important because it
+		can be used in animations for entertainment, as well as physically accurate simulations for engineering or other purposes.
+	</p>
+	<p>
+		It is important to focus on the interaction between the cheese particles—physical interaction to show a realistic view of how
+		cheese interacts with bodies around it. We will be focusing on the collision algorithms for the cheese with different types of
+		primitives such as plates, forks, and more.
+	</p>
+	<p>
+		There are several challenges with simulating the cheese such as elasticity and variance on how fluid the cheese would be.
+		For example, the edges of the cheese may become more brittle after a long time exposed to a heat source due to the oil in the
+		cheese which acts as a frying/sticking component. This is different from the cheese in the center which will have the most
+		elasticity due to the cheese particles surrounding it. When we simulate the cheese pull from the center, we may have to take
+		into account this difference in elasticity.
+	</p>
+
+	<h2>Goals and Deliverables</h2>
+	<h3>(1) What We Plan to Deliver</h3>
+	<p>
+		The goal of our project is to create a system that can simulate images like these: (e.g., cheese pulls, melting blocks of cheese)
+	</p>
+	<div style="display: flex; flex-direction: column; align-items: center;">
+		<table style="width: 100%; text-align: center; border-collapse: collapse;">
+			<tr>
+				<td style="text-align: center;">
+					<img src="./images/cheese1.png" width="300px"/>
+					<figcaption>Melting Cheese</figcaption>
+				</td>
+				<td style="text-align: center;">
+					<img src="./images/cheese2.png" width="300px"/>
+					<figcaption>Cheese on a Pizza</figcaption>
+				</td>
+				<td style="text-align: center;">
+					<img src="./images/cheese3.png" width="300px"/>
+					<figcaption>Cheese Block</figcaption>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<p>
+		What we plan to deliver is a simulation of elastic fluids like melted cheese. That means we must get a particle simulator working that constrains the particles to act like a mix of a solid and a liquid. The cheese should be able to interact with solid objects. For example the actual bread part of a pizza slice can just be considered a movable solid.
+	</p>
+	<p>
+		We need to include settings like density and viscosity. Then, we need to tune these settings to get the material to act like real-life cheese, including “stringiness”, which is the most desired property of a good cheese pull. Finally, we will use shaders to get the textures and lighting working to actually render nice images of cheese on pizza and by itself.
+	</p>
+
+	<h3>(2) Stretch Goals</h3>
+	<p>
+		Allow the “temperature” of the cheese to change over time, so we can see it actually melt and become more “loose”.
+		Taking this idea even further, we could simulate the real-life effect where melted cheese crisps up if heat is continued
+		to be applied, creating “cheese crisps”, where the edges are crispy but the center is still gooey.
+	</p>
+
+	<h2>Schedule</h2>
+	<h3>Week 1 (April 7 ~ April 13)</h3>
+	<ul>
+		<li>Figure out basic data structures and algorithms we will need to implement in the Homework 4 code</li>
+		<li>Narrow down what parameters we need to implement for the cheese</li>
+		<li>Read relevant background papers and watch videos</li>
+	</ul>
+
+	<h3>Week 2 (April 14 ~ April 20)</h3>
+	<ul>
+		<li>Dynamic Particle Systems: The particle interaction on cheese (voxel grids, spring damping systems, etc.)</li>
+		<li>Start with simple demos with particles to render the motion, then add the skin of cheese on it (colors, etc.)</li>
+	</ul>
+
+	<h3>Week 3 (April 21 ~ April 27)</h3>
+	<ul>
+		<li>Narrow down the objects the cheese would be colliding with (planes, spheres, rods, plates, forks, pepperonis, etc.)</li>
+		<li>Implement Temperature-based Constraints for heat and fluidity interactions</li>
+	</ul>
+
+	<h3>Week 4 (April 28 ~ May 4 - due)</h3>
+	<ul>
+		<li>Demos (cheese block change as time passes in the microwave), debugging</li>
+		<li>(Optional) Add more demos, like pulling cheese with a spoon or off a pizza slice</li>
+		<li>Final project demo prep</li>
+	</ul>
+
+	<p><strong>May 5:</strong> Final Presentation</p>
+
+	<h2>Resources</h2>
+	<ul>
+		<li><a href="https://graphics.stanford.edu/~mapauly/Pdfs/PointBasedAnimation.pdf">Point Based Animation of Elastic, Plastic and Melting Objects</a></li>
+		<li><a href="https://cgl.ethz.ch/Downloads/Publications/Papers/2011/Mar11/Mar11.pdf">Example-Based Elastic Materials</a></li>
+		<li><a href="https://www.sciencedirect.com/science/article/pii/S0022030298756140">Changes in the Composition and Meltability of Mozzarella Cheese During Contact with Pizza Sauce</a></li>
+		<li><a href="https://www.sciencedirect.com/science/article/pii/S0958694623000675?via%3Dihub#bib171">Melting of Natural Cheese: A Review</a></li>
+		<li>Lecture 17 - Physical Simulation</li>
+	</ul>
+	<p>
+		We will be extending the Homework 4 cloth simulator for this project, as it already contains the basic structure of a particle simulation. Our project will involve completely rewriting the physics of the particles to behave as a semi-liquid and updating the shading model to render the cheese surface realistically.
+	</p>
+
+	</body>
+</html>
